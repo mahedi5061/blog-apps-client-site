@@ -9,7 +9,7 @@ const RemoveBlog = () => {
     const [blogs,setBlogs]=useContext(userBlogs);
     const [deleteBlog,setDeleteBlog]=React.useState("")
     const deleteBlogItem=(id) => {
-        fetch('http://localhost:6055/blogDelete/'+id,{
+        fetch('https://peaceful-journey-60086.herokuapp.com/blogDelete/'+id,{
             method: 'DELETE',
         })
         .then(res=>res.json())

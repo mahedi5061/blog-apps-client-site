@@ -16,7 +16,7 @@ export const userBlogs=createContext();
 function App() {
   const [blogs,setBlogs] =React.useState([]);
   React.useEffect(() =>{
-    fetch('http://localhost:6055/blogs')
+    fetch('https://peaceful-journey-60086.herokuapp.com/blogs')
     .then(res=>res.json())
     .then(data=>setBlogs(data))
   },[])

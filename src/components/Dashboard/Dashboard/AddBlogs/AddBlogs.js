@@ -31,7 +31,7 @@ const AddBlogs = () => {
         formData.append('description', info.description);
         
 
-        fetch('http://localhost:6055/addBlogs', {
+        fetch('https://peaceful-journey-60086.herokuapp.com/addBlogs', {
             method: 'POST',
             body: formData
         })
