@@ -59,7 +59,7 @@ console.log(imageUrl)
 
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1" className='mt-3'>Date</label>
-                    <input  onBlur={handleBlur} type="text" className="form-control mt-3" name="date" placeholder="Publish date"  />
+                    <input  onBlur={handleBlur} type="text" className="form-control mt-3" name="date" placeholder="dd-mm-yy"  />
                 </div>
  
 
