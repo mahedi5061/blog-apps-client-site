@@ -7,7 +7,7 @@ const LatestBlogs = () => {
     console.log(blogs)
     return (
         <>
-        <h5 className="d-flex justify-content-center mt-5 blog">LATEST BLOGS</h5> 
+        <h5 className="d-flex justify-content-center mt-5 blog text-decoration-underline">LATEST BLOGS</h5> 
            <div className="d-flex justify-content-center  my-5 py-5">
             <div className="row w-75"> 
             {

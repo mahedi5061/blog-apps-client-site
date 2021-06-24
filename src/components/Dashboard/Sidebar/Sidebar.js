@@ -26,7 +26,7 @@ const Sidebar = () => {
             </li>  
 
             <li>
-                <Link to="/manageservice" className="text-white" style={{textDecoration: "none"}}>
+                <Link to="/removeblog" className="text-white" style={{textDecoration: "none"}}>
                     <FontAwesomeIcon icon={faThLarge} /> <span>Manage Blog</span>
                 </Link>
             </li>

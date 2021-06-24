@@ -10,6 +10,8 @@ import "./App.css";
 import AddBlogs from "./components/Dashboard/Dashboard/AddBlogs/AddBlogs";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
+import BlogPages from "./components/Home/BlogPages/BlogPages";
+import RemoveBlog from "./components/Dashboard/RemoveBlog/RemoveBlog";
 export const userBlogs=createContext();
 function App() {
   const [blogs,setBlogs] =React.useState([]);
@@ -31,6 +33,12 @@ function App() {
         </Route>
         <Route path="/addblogs">
           <AddBlogs></AddBlogs>
+        </Route>
+        <Route path="/blogPage/:id">
+          <BlogPages></BlogPages>
+        </Route>
+        <Route path="/removeblog">
+          <RemoveBlog></RemoveBlog>
         </Route>
         <Route exact path="/">
         <Home></Home>
