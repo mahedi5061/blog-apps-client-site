@@ -12,6 +12,7 @@ import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
 import BlogPages from "./components/Home/BlogPages/BlogPages";
 import RemoveBlog from "./components/Dashboard/RemoveBlog/RemoveBlog";
+import Login from "./components/Dashboard/LoginForm/Login/Login";
 export const userBlogs=createContext();
 function App() {
   const [blogs,setBlogs] =React.useState([]);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/removeblog">
           <RemoveBlog></RemoveBlog>
+        </Route>
+        <Route path="/login">
+          <Login></Login>
         </Route>
         <Route exact path="/">
         <Home></Home>
