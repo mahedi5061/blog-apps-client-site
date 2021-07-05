@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <NavbarComponent></NavbarComponent>
             <CaroSection></CaroSection>
-            {/* <LatestBlogs></LatestBlogs> */}
+            <LatestBlogs></LatestBlogs>
             <Blogs></Blogs>
             <Footer></Footer>
         </div>
