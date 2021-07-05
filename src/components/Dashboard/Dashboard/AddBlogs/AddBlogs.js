@@ -3,74 +3,133 @@ import NavbarComponent from '../../../Home/NavbarComponent/NavbarComponent';
 import axios from 'axios';
 
 const AddBlogs = () => {
-    const [info, setInfo] = React.useState({});
-    const [imageUrl,setImageUrl]=React.useState(null);
-    const handleBlur = e => {
-        const newInfo = { ...info };
-        newInfo[e.target.name] = e.target.value;
-        setInfo(newInfo);
-    }
-    const imageUpload=event => {
-        const imageData=new FormData();
-        imageData.set('key','d30ee21879b0a937f8035c54640a59a9');
-        imageData.append('image',event.target.files[0]);
-        axios.post('https://api.imgbb.com/1/upload',imageData)
-          .then(function (res) {
-            setImageUrl(res.data.data.display_url);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
-    const handleSubmit = () => {
-        const formData = new FormData()
-        
-        formData.append('file', imageUrl);
-        formData.append('title', info.title);
-        formData.append('date', info.date);
-        formData.append('description', info.description);
-        
+    const [title, setTitle] = React.useState("");
+    const [username, setUsername] = React.useState("");
+    const [desc, setDesc] = React.useState("");
+    const [file,setFile]=React.useState(null);
 
-        fetch('https://peaceful-journey-60086.herokuapp.com/addBlogs', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
-console.log(imageUrl)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const newPost = {
+          username,
+          title,
+          desc,
+        };
+        if (file) {
+          const data =new FormData();
+          const filename = Date.now() + file.name;
+          data.append("name", filename);
+          data.append("file", file);
+          newPost.photo = filename;
+          try {
+            await axios.post("/upload", data);
+          } catch (err) {}
+        }
+        try {
+          const res = await axios.post("/post", newPost);
+          window.location.replace("/posts/" + res.data._id);
+        } catch (err) {}
+      };
+
+
+
+    // const handleBlur = e => {
+    //     const newInfo = { ...info };
+    //     newInfo[e.target.name] = e.target.value;
+    //     setInfo(newInfo);
+       
+    // }
+    
+    // const imageUpload= (e)=>{
+    //     setFile(e.target.files[0])
+    // }
+    // //ImageBB Image upload system...
+    // // const imageUpload=event => {
+    // //     const imageData=new FormData();
+    // //     imageData.set('key','d30ee21879b0a937f8035c54640a59a9');
+    // //     imageData.append('image',event.target.files[0]);
+    // //     axios.post('https://api.imgbb.com/1/upload',imageData)
+    // //       .then(function (res) {
+    // //         setImageUrl(res.data.data.display_url);
+    // //       })
+    // //       .catch(function (error) {
+    // //         console.log(error);
+    // //       });
+    // // }
+    // const handleSubmit = async() => {
+    //     // const newPost={
+    //     //     username:info.username,
+    //     //     title:info.title,
+    //     //     desc:info.desc
+    //     // };
+    //     const formData = new FormData();
+    //     formData.append('username',info.username);
+    //     formData.append('title',info.title);
+    //     formData.append('desc',info.desc);
+       
+    //    if(file){
+    //     const data = new FormData();
+    //     const fileName=Date.now() + file.name;
+    //     data.append('name', fileName);
+    //     data.append('file', file);
+        
+    //     try {
+    //         await axios.post("/upload",data);
+    //     }
+    //     catch (error) {
+    //         console.log(error)
+    //     }
+    //    }
+    //    try{
+    //    const res= await axios.post("/post",formData);
+    //    window.location.replace("/posts/" + res.data._id);
+    //    }
+    //    catch (error) {
+    //        console.log(error)
+    //    }
+        
+    //     // fetch('https://peaceful-journey-60086.herokuapp.com/addBlogs', {
+    //     //     method: 'POST',
+    //     //     body: formData
+    //     // })
+    //     //     .then(response => response.json())
+    //     //     .then(data => {
+    //     //         console.log(data)
+    //     //     })
+    //     //     .catch(error => {
+    //     //         console.error(error)
+    //     //     })
+    // }
+
     return (
         <section className="container-fluid">
          
          <NavbarComponent></NavbarComponent>
-         
+         {file && (
+        <img class="mx-auto" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
+      )}
         <div className="p-4  mx-auto  w-75" style={{backgroundColor: "#F4FDFB" }}>
             <h5 className="text-brand text-center">Add a new Blog</h5>
             <form onSubmit={handleSubmit}>
+
             <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Blog title</label>
-                    <input  onBlur={handleBlur} type="text" className="form-control mt-3" name="title" placeholder="Blog title" />
+                    <label htmlFor="exampleInputPassword1" className='mt-3'>Author Name</label>
+                    <input  onBlur={(e)=>{setUsername(e.target.value)}} type="text" className="form-control mt-3" name="username" placeholder="Author name" />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Date</label>
-                    <input  onBlur={handleBlur} type="text" className="form-control mt-3" name="date" placeholder="dd-mm-yy"  />
+            <div className="form-group">
+                    <label htmlFor="exampleInputPassword1" className='mt-3'>Blog title</label>
+                    <input  onBlur={(e)=>{setTitle(e.target.value)}} type="text" className="form-control mt-3" name="title" placeholder="Blog title" />
                 </div>
- 
 
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1" className='mt-3'>Description</label>
-                    <textarea onBlur={handleBlur}  type="text" className="form-control mt-3" cols="30" rows="5" name="description" placeholder="description"/>
+                    <textarea onBlur={(e)=>{setDesc(e.target.value)}}  type="text" className="form-control mt-3" cols="30" rows="5" name="desc" placeholder="description"/>
                 </div>
                
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1" className='mt-3'>Upload a image</label>
-                    <input onChange={imageUpload} type="file" className="form-control mt-3" id="exampleInputPassword1" placeholder="Picture" />
+                    <input onChange={(e)=>{setFile(e.target.files[0])}} type="file" className="form-control mt-3" id="exampleInputPassword1" placeholder="Picture" />
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Submit</button> 
             </form>
