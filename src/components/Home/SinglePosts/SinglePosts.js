@@ -8,6 +8,7 @@ const SinglePosts = () => {
     const [post,setPost]=React.useState({});
     const location = useLocation();
     const path=location.pathname.split("/")[2];
+    const PF="http://localhost:5000/images/";
 
     React.useEffect(() => {
         const getPost = async () => {
@@ -22,7 +23,7 @@ const SinglePosts = () => {
         <NavbarComponent></NavbarComponent>
             <div class="mx-auto" style={{width: "45rem", cursor: "pointer"}}>
         
-        {/* <img src="" class="card-img-top pt-2" style={{height: "400px"}} alt="..."/> */}
+        <img src={PF + post.photo} class="card-img-top pt-2" style={{height: "400px"}} alt="..."/>
         <div class="card-body">
           <h5 class="card-title">{post.title}</h5>
           <hr></hr>
