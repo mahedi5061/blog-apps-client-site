@@ -8,7 +8,7 @@ const LatestBlog = ({blog}) => {
     return (
        
        <div class="mx-auto" style={{width: "25rem", cursor: "pointer"}}>
-       <Link to={`/blogPage/${_id}`} class="text-decoration-none text-black hover:text-black"> 
+       <Link to={`/posts/${_id}`} class="text-decoration-none text-black hover:text-black"> 
         <img src={PF + photo} class="card-img-top pt-2" style={{height: "220px"}} alt="..."/>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>

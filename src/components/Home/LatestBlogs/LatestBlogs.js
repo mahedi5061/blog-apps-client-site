@@ -5,7 +5,7 @@ import Category from "../../Shared/Category/Category";
 
 const LatestBlogs = () => {
   const [blogs, setBlogs] = useContext(userBlogs);
-  console.log(blogs);
+   
   return (
     <>
       <h5 className="d-flex justify-content-center mt-5 blog text-decoration-underline">
