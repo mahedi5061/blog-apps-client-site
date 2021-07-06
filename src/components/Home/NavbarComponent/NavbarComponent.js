@@ -6,7 +6,11 @@ import DarkLogo from "../../../Images/dark-logo.png";
 import { Context } from "../../../context/Context";
 
 const NavbarComponent = () => {
-  const { user }=useContext(Context)
+  const { user,dispatch }=useContext(Context);
+  // const [userLogin,setuserLogin]=React.useState(false);
+  const handleLogout =()=>{
+    dispatch({ type:"LOGGEDOUT"})
+  }
   return (
     <div>
       <Navbar expand="lg" className="w-75">
@@ -36,8 +40,7 @@ const NavbarComponent = () => {
             >
               Contact Us
             </Link>
-            <Link to="/login" class="text-decoration-none text-black hover:text-black">
-             {user.username}
+            <Link to="/login" class="text-decoration-none text-black hover:text-black" onClick={handleLogout}> {user?.username}
             </Link>
           </Nav>
         </Navbar.Collapse>

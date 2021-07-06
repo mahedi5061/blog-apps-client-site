@@ -1,17 +1,18 @@
 import React from 'react';
 import NavbarComponent from '../../../Home/NavbarComponent/NavbarComponent';
 import axios from 'axios';
+import { Context } from '../../../../context/Context';
 
 const AddBlogs = () => {
     const [title, setTitle] = React.useState("");
-    const [username, setUsername] = React.useState("");
     const [desc, setDesc] = React.useState("");
     const [file,setFile]=React.useState(null);
+    const {user}=React.useContext(Context)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newPost = {
-          username,
+          username:user.username,
           title,
           desc,
         };
@@ -111,11 +112,7 @@ const AddBlogs = () => {
         <div className="p-4  mx-auto  w-75" style={{backgroundColor: "#F4FDFB" }}>
             <h5 className="text-brand text-center">Add a new Blog</h5>
             <form onSubmit={handleSubmit}>
-
-            <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Author Name</label>
-                    <input  onBlur={(e)=>{setUsername(e.target.value)}} type="text" className="form-control mt-3" name="username" placeholder="Author name" />
-                </div>
+ 
 
             <div className="form-group">
                     <label htmlFor="exampleInputPassword1" className='mt-3'>Blog title</label>
