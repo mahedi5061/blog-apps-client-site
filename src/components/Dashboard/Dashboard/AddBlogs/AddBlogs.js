@@ -106,7 +106,7 @@ const AddBlogs = () => {
          
          <NavbarComponent></NavbarComponent>
          {file && (
-        <img class="mx-auto" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
+        <img class="mx-auto mb-3" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
       )}
         <div className="p-4  mx-auto  w-75" style={{backgroundColor: "#F4FDFB" }}>
             <h5 className="text-brand text-center">Add a new Blog</h5>

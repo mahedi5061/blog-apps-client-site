@@ -9,7 +9,7 @@ import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
 import BlogPages from "./components/Home/BlogPages/BlogPages";
 import RemoveBlog from "./components/Dashboard/RemoveBlog/RemoveBlog";
-import Login from "./components/Dashboard/LoginForm/Login/Login";
+import LoginForm from "./components/Home/LoginForm/LoginForm";
 export const userBlogs = createContext();
 function App() {
   const [postBlogs, setPostBlogs] = React.useState([]);
@@ -46,7 +46,7 @@ function App() {
             <RemoveBlog></RemoveBlog>
           </Route>
           <Route path="/login">
-            <Login></Login>
+            <LoginForm></LoginForm>
           </Route>
           <Route path="/posts/:postId">
           <SinglePosts />

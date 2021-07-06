@@ -4,7 +4,7 @@ const Category = () => {
   
     return (
         <>
-            <div class="card about-section m-5 p-5">
+            <div class="about-section m-5 p-5">
             <h3 class="font-sans p-2 text-center">About me</h3>
             <img
               class="card-img-top mx-auto"

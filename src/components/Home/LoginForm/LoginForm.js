@@ -1,10 +1,47 @@
 import React from 'react';
+import axios from "axios";
+const Practise = () => {
+    const [newUser,setNewUser]=React.useState(false);
+    const [email,setEmail] = React.useState("");
+  const [password,setPassword]= React.useState("");
+  const [username,setUserName] = React.useState("");
+  const [error,setError] = React.useState("")
+  //Validation for email and password...
+    // const handleBlur = e => {
+    //     let checkValidate = true;
+    // if (e.target.name === 'email') {
+    //   checkValidate = /\S+@\S+\.\S+/.test(e.target.value);
 
-const Login = () => {
-    const [newUser,setNewUser]=React.useState(false)
-    const handleBlur = e => {
+    // }
+    // if (e.target.name === 'password') {
+    //   const passwordValidation = e.target.value.length > 6;
+    //   const passwordValidationNumber = /\d{1}/.test(e.target.value);
+    //   checkValidate = passwordValidation && passwordValidationNumber
+    // }
+    // if (checkValidate) {
+    //   const userInfo = { ...user };
+    //   userInfo[e.target.name] = e.target.value;
+    //   setUser(userInfo)
+    // }
             
-    }
+    // }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError(false);
+        try {
+          const res = await axios.post("/auth/register", {
+            username,
+            email,
+            password,
+          });
+          console.log(res)
+          
+        //   res.data && window.location.replace("/");
+        } catch (err) {
+          setError(true);
+        }
+      };
+   
     const handleLogin=()=>setNewUser(true) 
     return (
         <div class="font-sans">
@@ -14,25 +51,25 @@ const Login = () => {
                 <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
                 <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
                     <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
-                        Registration
+                        { newUser ? "Registration":"Login"}
                     </label>
-                    <form method="#" action="#" class="mt-10">
+                    <form method="#" action="#" onSubmit={handleSubmit} class="mt-10">
                                         
                         <div>
-                            <input type="text" placeholder="Enter Name" class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>
+                            <input type="text" placeholder="Enter Name" onBlur={(e)=>{setUserName(e.target.value)}}  class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>
                         </div>
             
                         <div class="mt-7">                
-                            <input type="email" placeholder="Enter a Email" class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
+                            <input type="email" name="email" onBlur={(e)=>{setEmail(e.target.value)}} placeholder="Enter a Email" class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
                         </div>
     
                    {newUser&& <div><div class="mt-7">                
-                            <input type="password" placeholder="Enter a password" class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
+                            <input type="password" name="email" onBlur={(e)=>{setPassword(e.target.value)}} placeholder="Enter a password" class="mt-3 p-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
                         </div>
     
-                        <div class="mt-7">                
+                        {/* <div class="mt-7">                
                             <input type="password" placeholder="Confirm password" class="mt-3 block p-2 w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
-                        </div>
+                        </div> */}
     
                         </div>
                    }
@@ -87,4 +124,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Practise;
