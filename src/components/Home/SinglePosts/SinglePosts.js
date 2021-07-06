@@ -30,7 +30,9 @@ console.log(location)
 
       const handleDelete= async() => {
         try {
-          await axios.delete(`/post/${post._id}`, {data:{username:user.username}});
+          await axios.delete(`/post/${post._id}`, {
+            data:{username:user.username}
+          });
           window.location.replace("/");
         }
         catch (err) {
