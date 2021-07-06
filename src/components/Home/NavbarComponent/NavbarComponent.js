@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NavbarComponent.css";
 import DarkLogo from "../../../Images/dark-logo.png";
-import Profile from "../../../Images/Stylish Girl Hide Face FB DP 2021 (11).jpg";
+import { Context } from "../../../context/Context";
+
 const NavbarComponent = () => {
+  const { user }=useContext(Context)
   return (
     <div>
       <Navbar expand="lg" className="w-75">
@@ -34,12 +36,8 @@ const NavbarComponent = () => {
             >
               Contact Us
             </Link>
-            <Link to="/login">
-              <img
-                src={Profile}
-                width="140px"
-                className="rounded-circle p-5"
-              ></img>
+            <Link to="/login" class="text-decoration-none text-black hover:text-black">
+             {user.username}
             </Link>
           </Nav>
         </Navbar.Collapse>
