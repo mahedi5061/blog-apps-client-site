@@ -13,8 +13,16 @@ const LatestBlog = ({blog}) => {
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <hr></hr>
-          <p>{new Date(createdAt).toDateString()}</p>
-          <p><span class="text-muted">Author:</span> {username}</p>
+          <div class="row">
+            <div class="col-md-10">
+              <p>{new Date(createdAt).toDateString()}</p>
+            </div>
+            <div class="col-md-2">
+              <p>
+                <span class="text-muted">Author:</span> {username}
+              </p>
+            </div>
+          </div>
           <p>{desc}...</p>
            
         </div>
