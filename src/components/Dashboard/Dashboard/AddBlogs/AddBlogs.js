@@ -7,7 +7,7 @@ const AddBlogs = () => {
     const [title, setTitle] = React.useState("");
     const [desc, setDesc] = React.useState("");
     const [file,setFile]=React.useState(null);
-    const {user}=React.useContext(Context)
+    const {user}=React.useContext(Context);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

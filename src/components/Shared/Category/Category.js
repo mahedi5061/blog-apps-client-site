@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogImage from "../../../Images/blog-08-1170x600.jpg";
+import './Category.css'
 const Category = () => {
   
     return (

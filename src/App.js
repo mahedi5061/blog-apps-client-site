@@ -7,10 +7,10 @@ import axios from "axios";
 import AddBlogs from "./components/Dashboard/Dashboard/AddBlogs/AddBlogs";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
-import BlogPages from "./components/Home/BlogPages/BlogPages";
 import RemoveBlog from "./components/Dashboard/RemoveBlog/RemoveBlog";
 import Login from "./components/Dashboard/LoginFormPart/Login/Login.js";
 import Register from "./components/Dashboard/LoginFormPart/Register/Register.js";
+import Profile from "./components/Home/Profile/Profile";
 export const userBlogs = createContext();
 function App() {
   const [postBlogs, setPostBlogs] = React.useState([]);
@@ -51,6 +51,9 @@ function App() {
           </Route>
           <Route path="/posts/:postId">
             <SinglePosts />
+          </Route>
+          <Route path="/profile">
+            <Profile></Profile>
           </Route>
           <Route exact path="/">
             <Home></Home>
