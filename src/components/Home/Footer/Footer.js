@@ -5,7 +5,7 @@ import Instagram from "../../../Images/ins.jpg";
 import Twitter from "../../../Images/twitter2.png"
 const Footer = () => {
   return (
-    <footer class="page-footer container pt-4">
+      <div class="page-footer container pt-4 w-full">
       <div class="container-fluid  text-center text-md-left">
         <div class="row">
           <div class="col-md-6 mt-md-0 mt-3 text-secondary">
@@ -15,16 +15,16 @@ const Footer = () => {
             <p class='text-lg font-weight-bold'>Sitemap</p>
             <p class='text-lg font-weight-bold'>Community</p>
           </div>
-          <hr class="clearfix d-md-none pb-3"></hr>
+          {/* <hr class="clearfix d-md-none pb-3"></hr> */}
           <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase text-white mr-3">subscribe</h5>
+           <h5 class="text-uppercase text-white">subscribe</h5> 
 
-            <ul class="list-unstyled mt-5">
+            <ul class="list-unstyled mt-5 d-flex">
               <li>
-                <a href="https://www.facebook.com/"><img src={Facebook} style={{width: '40px',float: 'left',padding:'5px'}}></img></a>
+                <a href="https://www.facebook.com/"><img src={Facebook} style={{width: '40px',padding:'5px'}}></img></a>
               </li>
               <li>
-                <a href="https://www.instagram.com/"><img src={Instagram} style={{width: '40px',float: 'left',padding:'5px'}}></img></a>
+                <a href="https://www.instagram.com/"><img src={Instagram} style={{width: '40px' ,padding:'5px'}}></img></a>
               </li>
               <li>
                 <a href="https://twitter.com/"><img src={Twitter} style={{width: '40px',padding:'5px'}}></img></a>
@@ -55,7 +55,8 @@ const Footer = () => {
             © 2021 Copyright:
             <a href="https://modest-yonath-57af63.netlify.app/" class="text-blue hover:text-blue text-decoration-none"> Mahedi Hassan Sharif</a>
           </div>
-    </footer>
+    </div>
+    
   );
 };
 

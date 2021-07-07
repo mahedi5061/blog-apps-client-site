@@ -9,7 +9,7 @@ const LatestBlog = ({blog}) => {
        
        <div class="mx-auto" style={{width: "25rem", cursor: "pointer"}}>
        <Link to={`/posts/${_id}`} class="text-decoration-none text-black hover:text-black"> 
-        <img src={PF + photo} class="card-img-top pt-2" style={{height: "270px"}} alt="..."/>
+        <img src={PF + photo} class="card-img-top pt-2" style={{height: "270px",borderRadius: "20px"}} alt="..."/>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <hr></hr>

@@ -1,15 +1,7 @@
-.sidebarDesign{
-    
-    position: fixed;
-    background-image: linear-gradient(40deg, #572ea3,#321b5d);
-    
+.sidebarDesign {
+  background-image: linear-gradient(40deg, #572ea3, #321b5d);
 }
 .sidebarDesign li {
-    margin-bottom: 2em;
-    text-decoration: none;
-    
-}
-.sidebarDesign li:hover span{
-    display: inline-block;
-    
+  margin-bottom: 2em;
+  text-decoration: none;
 }

@@ -1,18 +1,21 @@
 import React from 'react';
-import BlogImage from "../../../Images/blog-08-1170x600.jpg";
+import { Context } from '../../../context/Context';
 import './Category.css'
 const Category = () => {
-  
+  const {user}=React.useContext(Context);
+  const PF="http://localhost:5000/images/";
     return (
         <>
             <div class="about-section m-5 p-5">
             <h3 class="font-sans p-2 text-center">About me</h3>
-            <img
-              class="card-img-top mx-auto"
-              src={BlogImage}
+           {
+             user?.userprofile &&  <img
+              class="card-img-top rounded-circle mx-auto"
+              src={PF+user?.userprofile}
               style={{ width: "20rem" }}
               alt="Card image cap"
             />
+           }
             <div class="card-body ">
               <p class="card-text text-center">
                 Some quick example text to build on the card title and make up

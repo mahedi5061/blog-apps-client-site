@@ -74,7 +74,7 @@ const Profile = () => {
                 alt=""
               />
               <label htmlFor="fileInput">
-              <FontAwesomeIcon icon={faUserCircle} className="settingsPPIcon"/>
+              <FontAwesomeIcon icon={faUserCircle} className="rounded-circle settingsPPIcon"/>
               </label>
               <input
                 type="file"

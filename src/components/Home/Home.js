@@ -7,13 +7,13 @@ import LatestBlogs from './LatestBlogs/LatestBlogs';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <NavbarComponent></NavbarComponent>
             <CaroSection></CaroSection>
             <LatestBlogs></LatestBlogs>
             {/* <Blogs></Blogs> */}
             <Footer></Footer>
-        </div>
+        </>
     );
 };
 

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./NavbarComponent.css";
 import DarkLogo from "../../../Images/dark-logo.png";
 import { Context } from "../../../context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const NavbarComponent = () => {
   const { user, dispatch } = useContext(Context);
@@ -55,13 +57,17 @@ const NavbarComponent = () => {
             )}
 
             <Link to="/profile" class="p-4">
-              {user && (
+              {user?.userprofile  ?
                 <img
                   src={PF + user?.userprofile}
                   class="rounded-circle"
                   style={{ width: "40px" }}
-                ></img>
-              )}
+                ></img>:
+                <FontAwesomeIcon icon={faUserCircle} className="rounded-circle"
+                  style={{ width: "30px", height: "30px", backgroundColor:"white" }}
+                />
+              }
+              
             </Link>
           </Nav>
         </Navbar.Collapse>

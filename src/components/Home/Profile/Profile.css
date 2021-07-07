@@ -44,9 +44,7 @@
   }
   
   .settingsPPIcon {
-    width: 35px;
-    height: 18px;
-    border-radius: 50%;
+    font-size:17px;
     background-color: lightcoral;
     color: white;
     display: flex;

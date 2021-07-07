@@ -1,0 +1,27 @@
+
+  .publish{
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  .publish:hover{
+    color: white;
+  }
+  .areaText{
+      height:50vh
+  }
+  .writeInput{
+      font-size: 30px;
+  }
+  .writeInput:focus{
+      outline:none
+  }
+  .imageFile{
+    font-size:25px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+  }

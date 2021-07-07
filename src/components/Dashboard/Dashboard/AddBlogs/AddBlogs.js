@@ -2,6 +2,9 @@ import React from 'react';
 import NavbarComponent from '../../../Home/NavbarComponent/NavbarComponent';
 import axios from 'axios';
 import { Context } from '../../../../context/Context';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+ import './AddBlogs.css'
 
 const AddBlogs = () => {
     const [title, setTitle] = React.useState("");
@@ -103,35 +106,36 @@ const AddBlogs = () => {
     // }
 
     return (
-        <section className="container-fluid">
+      <section className="container-fluid">
          
-         <NavbarComponent></NavbarComponent>
-         {file && (
-        <img class="mx-auto mb-3" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
-      )}
-        <div className="p-4  mx-auto  w-75" style={{backgroundColor: "#F4FDFB" }}>
-            <h5 className="text-brand text-center">Add a new Blog</h5>
-            <form onSubmit={handleSubmit}>
- 
+      <NavbarComponent></NavbarComponent>
+      {file && (
+     <img class="mx-auto mt-3 mb-3" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
+   )}
+     <div className="p-4 mt-3 mx-auto  w-75">
+          
+         <form onSubmit={handleSubmit}>
 
-            <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Blog title</label>
-                    <input  onBlur={(e)=>{setTitle(e.target.value)}} type="text" className="form-control mt-3" name="title" placeholder="Blog title" />
-                </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Description</label>
-                    <textarea onBlur={(e)=>{setDesc(e.target.value)}}  type="text" className="form-control mt-3" cols="30" rows="5" name="desc" placeholder="description"/>
-                </div>
-               
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" className='mt-3'>Upload a image</label>
-                    <input onChange={(e)=>{setFile(e.target.files[0])}} type="file" className="form-control mt-3" id="exampleInputPassword1" placeholder="Picture" />
-                </div>
-                <button type="submit" className="btn btn-primary mt-3">Submit</button> 
-            </form>
-        </div>
-    </section>
+         <div className="form-group">
+                  
+                 <input  onBlur={(e)=>{setTitle(e.target.value)}} type="text" className="form-control mt-3 writeInput" name="title" placeholder="Title" />
+             </div>
+
+             <div className="form-group">
+                  
+                 <textarea onBlur={(e)=>{setDesc(e.target.value)}}  type="text" className="form-control writeInput areaText mt-3" cols="30" rows="5" name="desc" placeholder="Tell your story..."/>
+             </div>
+            
+             <div className="form-group">
+                 <label htmlFor="exampleInputPassword1" className='mt-3'><FontAwesomeIcon icon={faPlusCircle} className="imageFile"/></label>
+                 <input onChange={(e)=>{setFile(e.target.files[0])}} type="file" className="form-control  d-none mt-3" id="exampleInputPassword1" placeholder="Picture" />
+                 <button type="submit"  className="btn float-end publish mt-3">Publish</button> 
+             </div>
+             
+         </form>
+     </div>
+ </section>
     );
 };
 
