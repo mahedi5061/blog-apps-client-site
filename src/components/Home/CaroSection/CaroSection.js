@@ -1,12 +1,11 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import FirstImage from "../../../Images/josh-boot-2x19-mRQgX8-unsplash.jpg";
-import SecImage from "../../../Images/carl-heyerdahl-KE0nC8-58MQ-unsplash.jpg";
-import ThirdImage from "../../../Images/photo-1481487196290-c152efe083f5.jpg";
+import FirstImage from "../../../Images/bestfood.jpg";
+import SecImage from "../../../Images/sports_banners.png";
+import ThirdImage from "../../../Images/horizontal-music-banner-bright-purple-260nw-1247536372.jpg";
 
 const CaroSection = () => {
   const [index, setIndex] = React.useState(0);
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
@@ -21,21 +20,21 @@ const CaroSection = () => {
             style={{height:"50vh"}}
           />
           <Carousel.Caption>
-            <h3>Blog grid classic 01</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>The best Japanese street food</h3>
+            <p>Why you should make takoyaki at home. What does takoyaki taste like?</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100 h-10 "
+            className="d-block w-100 h-10"
             src={SecImage}
             alt="Second slide"
             style={{height:"50vh"}}
           />
 
           <Carousel.Caption>
-            <h3>Blog grid classic 02</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3 class="text-black">The Sports</h3>
+            <p class="text-black">This site offers a subscription for in-depth sports news and features. It also has a podcast for avid sports fans. Find articles about major sports, sports teams, and top cities..</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

@@ -106,7 +106,7 @@ const AddBlogs = () => {
     // }
 
     return (
-      <section className="container-fluid">
+      <div className="container-fluid">
          
       <NavbarComponent></NavbarComponent>
       {file && (
@@ -135,7 +135,7 @@ const AddBlogs = () => {
              
          </form>
      </div>
- </section>
+ </div>
     );
 };
 

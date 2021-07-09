@@ -7,17 +7,17 @@ const LatestBlog = ({blog}) => {
     
     return (
        
-       <div class="mx-auto" style={{width: "25rem", cursor: "pointer"}}>
+       <div class="mx-auto" style={{width: "27rem", cursor: "pointer"}}>
        <Link to={`/posts/${_id}`} class="text-decoration-none text-black hover:text-black"> 
         <img src={PF + photo} class="card-img-top pt-2" style={{height: "270px",borderRadius: "20px"}} alt="..."/>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <hr></hr>
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-6">
               <p>{new Date(createdAt).toDateString()}</p>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
               <p>
                 <span class="text-muted">Author:</span> {username}
               </p>

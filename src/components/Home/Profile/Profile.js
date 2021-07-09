@@ -8,9 +8,8 @@ import {  faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import NavbarComponent from "../../Home/NavbarComponent/NavbarComponent";
 const Profile = () => {
     const [file,setFile]=React.useState(null);
-    const [username,setUsername]=React.useState("");
-    const [email,setEmail]=React.useState("");
-    const [password,setPassword]= React.useState("");
+    const [address,setUserAddress]=React.useState("");
+    const [occupation,setOccupation]=React.useState("");
     const {user, dispatch}=React.useContext(Context);
     const PF = "http://localhost:5000/images/";
     const [success, setSuccess] = React.useState(false);
@@ -20,9 +19,8 @@ const Profile = () => {
         dispatch({ type: "UPDATE_START" });
         const updateProfile = {
             userId:user?._id,
-            username,
-            email,
-            password
+            address,
+            occupation
         };
         if (file) {
           const data =new FormData();
@@ -83,23 +81,23 @@ const Profile = () => {
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </div>
-            <label>Username</label>
+            <label>Address</label>
             <input
               type="text"
-              placeholder={user?.username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Area, District"
+              onChange={(e) => setUserAddress(e.target.value)}
             />
-            <label>Email</label>
+            <label>Occupation</label>
             <input
-              type="email"
-              placeholder={user?.email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="occupation"
+              placeholder="occupation"
+              onChange={(e) => setOccupation(e.target.value)}
             />
-            <label>Password</label>
+            {/* <label>Password</label>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
-            />
+            /> */}
             <button className="settingsSubmit" type="submit">
               Update
             </button>
